@@ -15,7 +15,7 @@ server: http://localhost:3000
 
 # Next steps
 
-- Create dev server with webpack-dev :white_check_mark:
-- Create files router-config client & server
-- Create Router in client
-- Create router in server
+- :white_check_mark: Create dev server with webpack-dev
+- :red_circle: Create files router-config client & server
+- :red_circle: Create Router in client
+- :red_circle: Create router in server
