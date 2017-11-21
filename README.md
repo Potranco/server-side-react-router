@@ -1,7 +1,7 @@
-# Server side with React
+# Server side with React & React-Router
 
 ```
-Basic server WebPack: React + Sass
+Basic server: React + Router
 
 INSTALL: npm i
 DEV: npm run dev
