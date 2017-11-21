@@ -12,5 +12,7 @@ server: http://localhost:3000
 
 # Next steps
 
-- Create watcher components
-- Create watcher server
+- Create dev server with webpack-dev
+- Create files router-config client & server
+- Create Router in client
+- Create router in server 

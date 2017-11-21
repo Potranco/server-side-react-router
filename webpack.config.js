@@ -4,8 +4,7 @@ module.exports = {
     extensions: ['.js']
   },
   entry: {
-    app: './src/app.js',
-    server: './server.js'
+    app: './src/app.js'
   },
   output: {
     path: path.resolve(__dirname,'dist/'),

@@ -10,11 +10,14 @@
     "babel-preset-react": "^6.24.1",
     "express": "^4.16.2",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "react-router-config": "^1.0.0-beta.4"
   },
   "scripts": {
-    "start": "node index.js",
-    "dev": "webpack --colors && babel ./src/MyComponent.js --out-file ./dist/MyComponent.js && babel server.js --out-file index.js && nodemon index.js"
+    "start-server": "npm run bundle-server && node ./server/index.js",
+    "bundle-server": "babel ./server/server.js --out-file ./server/index.js",
+    "dev-server": "npm run bundle-server && nodemon ./server/index.js",
+    "dev": "webpack --colors && babel ./src/MyComponent.js --out-file ./dist/MyComponent.js && npm run dev-server"
   },
   "author": "Potranco",
   "license": "ISC",
