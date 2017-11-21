@@ -4,8 +4,9 @@
 Basic server: React + Router
 
 INSTALL: npm i
-DEV: npm run dev
-Start: npm start
+DEV-SERVER: npm run dev-server
+Start: npm start-server
+DEV: npm run dev (in test)
 ```
 
 server: http://localhost:3000
@@ -15,4 +16,4 @@ server: http://localhost:3000
 - Create dev server with webpack-dev
 - Create files router-config client & server
 - Create Router in client
-- Create router in server 
+- Create router in server
