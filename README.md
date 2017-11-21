@@ -4,9 +4,11 @@
 Basic server: React + Router
 
 INSTALL: npm i
+
 DEV-SERVER: npm run dev-server
-START: npm start-server
 DEV-CLIENT: npm run dev-client
+
+START: npm start
 ```
 
 server: http://localhost:3000

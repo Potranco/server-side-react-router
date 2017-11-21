@@ -14,7 +14,7 @@
     "react-router-config": "^1.0.0-beta.4"
   },
   "scripts": {
-    "start-server": "npm run bundle-server && node ./server/index.js",
+    "start": "npm run bundle-server && node ./server/index.js",
     "bundle-server": "babel ./server/server.js --out-file ./server/index.js",
     "dev-server": "npm run bundle-server && nodemon ./server/index.js",
     "dev-client": "webpack-dev-server --watch --progress --colors --open"
