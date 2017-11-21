@@ -10,8 +10,11 @@ DEV-CLIENT: npm run dev-client
 
 START: npm start
 ```
+#Servers
 
-server: http://localhost:3000
+Server: http://localhost:8080
+Dev Server: http://localhost:3000
+Dev Client Server: http://localhost:3030
 
 # Next steps
 
