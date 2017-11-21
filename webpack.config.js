@@ -10,6 +10,11 @@ module.exports = {
     path: path.resolve(__dirname,'dist/'),
     filename: '[name].js',
   },
+  devServer: {
+    contentBase: path.join(__dirname, "dist"),
+    compress: true,
+    port: 3030
+  },
   module: {
     loaders: [
       {
