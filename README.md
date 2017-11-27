@@ -14,13 +14,13 @@ START: npm start
 # Servers
 
 Server: http://localhost:8080
-Dev Server: http://localhost:3000
+Dev Server: http://localhost:8080
 Dev Client Server: http://localhost:3030
 
 # Next steps
 
 - :white_check_mark: Create dev server with webpack-dev
 - :white_check_mark: Create files router client
-- :red_circle: Create files router server
+- :white_check_mark: Create files router server
 - :white_check_mark: Create Router in client
-- :red_circle: Create router in server
+- :white_check_mark: Create router in server

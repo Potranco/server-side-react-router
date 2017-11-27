@@ -16,12 +16,13 @@ var _StaticRouter = require('react-router-dom/StaticRouter');
 
 var _StaticRouter2 = _interopRequireDefault(_StaticRouter);
 
-var _app = require('../dist/app');
+var _app = require('../src/app');
 
 var _app2 = _interopRequireDefault(_app);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+console.log(_app2.default);
 var app = (0, _express2.default)();
 
 app.use('/assets', _express2.default.static('dist'));
@@ -42,7 +43,7 @@ app.get('/', function (req, res) {
   }
 });
 
-app.listen(8080, function () {
+app.listen(8090, function () {
   console.log('Server app listening on port 8080!');
   console.info('url: http://localhost:8080');
 });

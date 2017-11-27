@@ -2,42 +2,41 @@ import express from 'express';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import StaticRouter from 'react-router-dom/StaticRouter';
-import App from '../dist/app';
+import App from '../src/app';
 
 const app = express();
 
 app.use('/assets',express.static('dist'));
 
-app.get('/', function (req, res) {
+app.get('*', function (req, res) {
   const context = {};
   const AppServerRender = ReactDOMServer.renderToString(
-    // aqui falla algo
     <StaticRouter location={ req.url } context={context} >
       <App/>
     </StaticRouter>
   );
 
-if (context.url) {
-  res.writeHead(301, { Location: context.url} );
-}
-else {
-  const html = `
-    <html>
-    <head>
-      <title>Server</title>
-    </head>
-    <body>
-      <h1>hola mundo</h1>
-      <div id="serverside">
-        ${AppServerRender}
-      </div>
-      <div id="app">Render in client</div>
-      <script src="/assets/main.js"></script>
-    </body>
-    </html>
-  `;
-  res.send(html);
-}
+  if (context.url) {
+    res.writeHead(301, { Location: context.url} );
+  }
+  else {
+    const html = `
+      <html>
+      <head>
+        <title>Server</title>
+      </head>
+      <body>
+        <h1>hola mundo</h1>
+        <div id="app">
+          ${AppServerRender}
+        </div>
+        <div id="app">Render in client</div>
+        <script src="/assets/main.js"></script>
+      </body>
+      </html>
+    `;
+    res.send(html);
+  }
 
 });
 
