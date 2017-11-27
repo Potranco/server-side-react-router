@@ -12,9 +12,13 @@ var _server = require('react-dom/server');
 
 var _server2 = _interopRequireDefault(_server);
 
-var _MyComponent = require('../dist/MyComponent.js');
+var _StaticRouter = require('react-router-dom/StaticRouter');
 
-var _MyComponent2 = _interopRequireDefault(_MyComponent);
+var _StaticRouter2 = _interopRequireDefault(_StaticRouter);
+
+var _app = require('../dist/app');
+
+var _app2 = _interopRequireDefault(_app);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23,9 +27,19 @@ var app = (0, _express2.default)();
 app.use('/assets', _express2.default.static('dist'));
 
 app.get('/', function (req, res) {
-  var componente = _server2.default.renderToString(_react2.default.createElement(_MyComponent2.default, { version: 'Servidor' }));
-  var html = '\n    <html>\n    <head>\n      <title>Server</title>\n    </head>\n    <body>\n      <h1>hola mundo</h1>\n      <div id="serverside">\n        ' + componente + '\n      </div>\n      <div id="app">Render in client</div>\n      <script src="/assets/app.js"></script>\n    </body>\n    </html>\n  ';
-  res.send(html);
+  var context = {};
+  var AppServerRender = _server2.default.renderToString(_react2.default.createElement(
+    _StaticRouter2.default,
+    { location: req.url, context: context },
+    _react2.default.createElement(_app2.default, null)
+  ));
+
+  if (context.url) {
+    res.writeHead(301, { Location: context.url });
+  } else {
+    var html = '\n    <html>\n    <head>\n      <title>Server</title>\n    </head>\n    <body>\n      <h1>hola mundo</h1>\n      <div id="serverside">\n        ' + AppServerRender + '\n      </div>\n      <div id="app">Render in client</div>\n      <script src="/assets/main.js"></script>\n    </body>\n    </html>\n  ';
+    res.send(html);
+  }
 });
 
 app.listen(8080, function () {

@@ -1,14 +1,26 @@
 import express from 'express';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import MyComponent from '../dist/MyComponent.js';
+import StaticRouter from 'react-router-dom/StaticRouter';
+import App from '../dist/app';
 
 const app = express();
 
 app.use('/assets',express.static('dist'));
 
 app.get('/', function (req, res) {
-  let componente = ReactDOMServer.renderToString(<MyComponent version='Servidor'/>);
+  const context = {};
+  const AppServerRender = ReactDOMServer.renderToString(
+    // aqui falla algo
+    <StaticRouter location={ req.url } context={context} >
+      <App/>
+    </StaticRouter>
+  );
+
+if (context.url) {
+  res.writeHead(301, { Location: context.url} );
+}
+else {
   const html = `
     <html>
     <head>
@@ -17,14 +29,16 @@ app.get('/', function (req, res) {
     <body>
       <h1>hola mundo</h1>
       <div id="serverside">
-        ${componente}
+        ${AppServerRender}
       </div>
       <div id="app">Render in client</div>
-      <script src="/assets/app.js"></script>
+      <script src="/assets/main.js"></script>
     </body>
     </html>
   `;
   res.send(html);
+}
+
 });
 
 
