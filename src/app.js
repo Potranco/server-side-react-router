@@ -34,5 +34,4 @@ const App = (props) => {
     </div>
   );
 }
-console.log('Module App');
 export default App;

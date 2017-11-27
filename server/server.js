@@ -1,7 +1,7 @@
 import express from 'express';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import StaticRouter from 'react-router-dom/StaticRouter';
+import StaticRouter from 'react-router/StaticRouter';
 import App from '../src/app';
 
 const app = express();

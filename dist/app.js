@@ -4172,7 +4172,6 @@ var App = function App(props) {
     )
   );
 };
-console.log('Module App');
 exports.default = App;
 
 /***/ }),
