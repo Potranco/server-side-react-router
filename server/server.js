@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import StaticRouter from 'react-router/StaticRouter';
 import App from '../src/app';
+import template from '../templates/index-html'
 
 const app = express();
 
@@ -20,28 +21,14 @@ app.get('*', function (req, res) {
     res.writeHead(301, { Location: context.url} );
   }
   else {
-    const html = `
-      <html>
-      <head>
-        <title>Server</title>
-      </head>
-      <body>
-        <h1>hola mundo</h1>
-        <div id="app">
-          ${AppServerRender}
-        </div>
-        <div id="app">Render in client</div>
-        <script src="/assets/main.js"></script>
-      </body>
-      </html>
-    `;
+    const html = template(AppServerRender,'App render!!');
     res.send(html);
   }
 
 });
 
 
-app.listen(8080, function () {
+app.listen(8081, function () {
   console.log('Server app listening on port 8080!');
   console.info('url: http://localhost:8080');
 });
