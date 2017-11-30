@@ -6,6 +6,8 @@ class MyComponent extends React.Component {
     super(props)
   }
 
+  default
+
   render () {
     const version = this.props.version || 'default version';
     return (

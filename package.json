@@ -18,11 +18,15 @@
     "bundle-server": "babel-node ./server/server.js --out-file ./server/index.js",
     "bundle-client": "webpack --progress --colors",
     "dev-server": "npm run bundle-server && nodemon ./server/index.js",
-    "dev-client": "webpack-dev-server --watch --progress --colors --open"
+    "dev-client": "webpack-dev-server --watch --progress --colors --open",
+    "test": "mocha './src/**/*.spec.js' --compilers js:babel-core/register"
   },
   "author": "Potranco",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "expect": "^21.2.1",
+    "mocha": "^4.0.1",
     "nodemon": "^1.12.1",
     "webpack-dev-server": "^2.9.4"
   }
